@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Digitālā Daba</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background-color: #f0f8f5;
+      color: #333;
+    }
+    header {
+      background-color: #28a745;
+      color: white;
+      text-align: center;
+      padding: 2em;
+    }
+    section {
+      padding: 2em;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      color: #28a745;
+    }
+    .pros-cons {
+      display: flex;
+      gap: 2em;
+    }
+    .pros-cons div {
+      flex: 1;
+      background-color: #e9f7ef;
+      padding: 1em;
+      border-radius: 8px;
+    }
+    .survey input[type="radio"] {
+      margin-right: 8px;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 0.7em;
+      margin-top: 0.5em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 0.7em 1.5em;
+      margin-top: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    iframe {
+      width: 100%;
+      height: 315px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Digitālā Daba 🌍</h1>
+  <p>Kā digitāli uzlabot dabu piesārņojumu?</p>
+</header>
+
+<section class="survey">
+  <h2>Aptauja</h2>
+  <form id="surveyForm">
+    <p>Vai Tu uzskati, ka digitālie rīki var palīdzēt samazināt piesārņojumu?</p>
+    <label><input type="radio" name="q1" value="Jā"> Jā</label><br>
+    <label><input type="radio" name="q1" value="Nē"> Nē</label><br><br>
+
+    <p>Cik bieži Tu iesaisties vides aizsardzībā?</p>
+    <label><input type="radio" name="q2" value="Bieži"> Bieži</label><br>
+    <label><input type="radio" name="q2" value="Reizi gadā"> Reizi gadā</label><br>
+    <label><input type="radio" name="q2" value="Nekad"> Nekad</label><br><br>
+	
+	<p>Kāda veida piesārņojumu jūs visbiežāk novērojat savā apkārtnē?</p>
+    <label><input type="radio" name="q3" value="Gaisa piesārņojums"> Gaisa piesārņojums</label><br>
+    <label><input type="radio" name="q3" value="Ūdens piesārņojums"> Ūdens piesārņojums</label><br>
+    <label><input type="radio" name="q3" value="Trokšņu piesārņojums"> Trokšņu piesārņojums</label><br><br>
+
+    <button type="button" onclick="submitSurvey()">Iesniegt</button>
+  </form>
+  <div id="surveyResult" style="margin-top: 1em;"></div>
+</section>
+
+<section>
+  <h2>Digitālo risinājumu plusi un mīnusi </h2>
+  <div class="pros-cons">
+    <div>
+      <h3>✅ Plusi</h3>
+      <ul>
+        <li>Ātri un viegli pieejami risinājumi internetā</li>
+        <li>Plaša auditorija iespējama</li>
+        <li>Zema izmaksu barjera</li>
+		<li>Resursu taupīšana</li>
+      </ul>
+    </div>
+    <div>
+      <h3>❌ Mīnusi</h3>
+      <ul>
+        <li>Cilvēki var melot aptaujās</li>
+        <li>Nav garantijas, ka video tiks skatīti</li>
+		<li>Tehniskās kļūmes</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Video par dabu un piesārņojumu angļu valodā.</h2>
+
+</section>
+
+<iframe width="560" height="560" src="https://www.youtube.com/embed/J3Df0-ZJ_WA?si=VV1X6bKaMo8lKqhH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<section>
+  <h2>Video par dabu un piesārņojumu latviešu valodā.</h2>
+
+</section>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XKFImmaA-5E?si=-7W9RymqGYxrKkCc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+<section class="contact-form">
+  <h2>Kontakti / Atsauksmes</h2>
+  <p>Ko Tu vēlētos pievienot šai lapai?</p>
+
+  <input type="text" id="nameInput" placeholder="Tavs vārds" /><br>
+  <textarea id="commentInput" rows="4" placeholder="Tavs komentārs..."></textarea><br>
+  <button onclick="submitComment()">Nosūtīt</button>
+
+  <div id="commentResult" style="margin-top: 1em;"></div>
+</section>
+
+<script>
+  function submitComment() {
+    const name = document.getElementById("nameInput").value.trim();
+    const comment = document.getElementById("commentInput").value.trim();
+    const commentResult = document.getElementById("commentResult");
+
+    if (name && comment) {
+      commentResult.innerHTML = `<p>Paldies, <strong>${name}</strong>, par Tavu komentāru! Varbūt tas komentārs būs pievienots mūsu weblapā.</p>
+                                 <p>Tu ierosināji: "${comment}"</p>`;
+    } else {
+      commentResult.innerHTML = `<p style="color: red;">Lūdzu, aizpildi gan vārdu, gan komentāru.</p>`;
+    }
+  }
+</script>
+
+
+</body>
+</html>
